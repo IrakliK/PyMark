@@ -6,7 +6,7 @@ def runscript():
     header = "| "+name[0]+" | "+repo[0]+" | "+grader[0]+"|"
     divider = "\n| "+"----"+" | "+"----"+ " | "+"----"+ " |"
 
-    saveReadme = open('README.md', 'a')
+    saveReadme = open('Sheet.md', 'a')
     saveReadme.write(header)
     saveReadme.write(divider)
 
