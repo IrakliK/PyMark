@@ -1,4 +1,5 @@
 import numpy as np
+import csv
 
 def runscript():
 
@@ -14,4 +15,20 @@ def runscript():
         list1 = "\n| "+name[x] + " | " + repo[x] + " | " + grader[x] + " |"
         saveReadme.write(list1)
 
-runscript()
+
+
+def runscript2():
+    header = "| name | repo | grader|\n"
+    divider = "| ---- | ---- | ---- |\n"
+
+    with open('gradesheet.csv', 'r+') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            content = "| " + row[0] + " | " + row[1] + " | " + row[2] + "|"
+            save_readme = open(row[0] + '_sheet.md', 'w')
+            save_readme.write(header)
+            save_readme.write(divider)
+            save_readme.write(content)
+            save_readme.close()
+
+runscript2()
