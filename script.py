@@ -1,6 +1,8 @@
 import numpy as np
 import csv
 
+CONTENT_TEMPLATE = "| {0} | {1} | {2}|"
+
 def runscript():
 
     name, repo, grader, punctuality = np.loadtxt('gradesheet.csv',delimiter=',',unpack=True,dtype='str')
@@ -24,7 +26,8 @@ def runscript2():
     with open('gradesheet.csv', 'r+') as f:
         reader = csv.reader(f)
         for row in reader:
-            content = "| " + row[0] + " | " + row[1] + " | " + row[2] + "|"
+            content = CONTENT_TEMPLATE.format(row[0], row[1], row[2])
+            # content = "| " + row[0] + " | " + row[1] + " | " + row[2] + "|"
             save_readme = open(row[0] + '_sheet.md', 'w')
             save_readme.write(header)
             save_readme.write(divider)
